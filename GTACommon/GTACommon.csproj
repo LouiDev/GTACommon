@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\CommonSpeeches.cs" />
+    <Compile Include="Enums\ControllerButton.cs" />
     <Compile Include="Extensions\BlipExtensions.cs" />
     <Compile Include="Extensions\CommonSpeechesExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
