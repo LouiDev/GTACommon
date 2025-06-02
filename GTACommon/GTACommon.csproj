@@ -51,6 +51,7 @@
     <Compile Include="Enums\ControllerButton.cs" />
     <Compile Include="Extensions\BlipExtensions.cs" />
     <Compile Include="Extensions\CommonSpeechesExtensions.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\PedExtensions.cs" />
     <Compile Include="Extensions\VehicleExtensions.cs" />
