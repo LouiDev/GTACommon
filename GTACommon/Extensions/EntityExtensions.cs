@@ -30,8 +30,12 @@ namespace GTACommon.Extensions
 
         public static float DistanceTo(this Entity entity, Blip blip) => entity.Position.DistanceTo(blip.Position);
 
+        public static float DistanceTo(this Entity entity, Vector3 vector3) => entity.Position.DistanceTo(vector3);
+
         public static float DistanceTo2D(this Entity entity, Entity otherEntity) => entity.Position.ToVector2().DistanceTo(otherEntity.Position.ToVector2());
 
         public static float DistanceTo2D(this Entity entity, Blip blip) => entity.Position.ToVector2().DistanceTo(blip.Position.ToVector2());
+
+        public static float DistanceTo2D(this Entity entity, Vector2 vector2) => entity.Position.ToVector2().DistanceTo(vector2);
     }
 }
