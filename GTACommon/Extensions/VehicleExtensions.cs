@@ -3,18 +3,25 @@ using GTA.Native;
 using GTACommon.Serialization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
 namespace GTACommon.Extensions
 {
+    /// <summary>
+    /// Provides extension methods for retrieving data, serializing, and seat management operations on Vehicle
+    /// instances.
+    /// </summary>
     public static class VehicleExtensions
     {
         /// <summary>
-        /// Gets the vehicle data from the vehicle instance, including all installed mods, colors, and other properties.
+        /// Retrieves comprehensive data describing the current state and modifications of the specified vehicle.
         /// </summary>
+        /// <remarks>The returned VehicleData reflects the vehicle's current configuration, including all
+        /// installed mods and color settings. This method does not modify the vehicle and can be called repeatedly to
+        /// obtain up-to-date information.</remarks>
+        /// <param name="vehicle">The vehicle instance from which to extract modification and appearance data. Cannot be null.</param>
+        /// <returns>A VehicleData object containing details about the vehicle's model, installed modifications, neon lights,
+        /// colors, and other relevant attributes.</returns>
         public static VehicleData GetVehicleData(this Vehicle vehicle)
         {
             List<SerializableVehicleMod> mods = new List<SerializableVehicleMod>();
@@ -76,13 +83,23 @@ namespace GTACommon.Extensions
         }
 
         /// <summary>
-        /// Serializes the vehicle to JSON format.
+        /// Serializes the specified vehicle to a JSON string representation.
         /// </summary>
-        public static string ToJson(this Vehicle vehicle) => new JavaScriptSerializer().Serialize(vehicle.GetVehicleData());
+        /// <param name="vehicle">The vehicle instance to serialize. Cannot be null.</param>
+        /// <returns>A JSON-formatted string that represents the vehicle's data.</returns>
+        public static string ToJson(this Vehicle vehicle)
+            => new JavaScriptSerializer().Serialize(vehicle.GetVehicleData());
 
         /// <summary>
-        /// Checks if there is a free seat in the vehicle and returns it if available.
+        /// Attempts to find the next available seat in the specified vehicle.
         /// </summary>
+        /// <remarks>This method checks all seats in the vehicle and returns the first available one. If
+        /// no seats are free or the vehicle is invalid, <paramref name="seat"/> is set to <see cref="VehicleSeat.Any"/>
+        /// and the method returns false.</remarks>
+        /// <param name="vehicle">The vehicle in which to search for a free seat. Must not be null and must exist in the game world.</param>
+        /// <param name="seat">When this method returns, contains the first free seat found in the vehicle, or <see
+        /// cref="VehicleSeat.Any"/> if no seat is available.</param>
+        /// <returns>true if a free seat is found; otherwise, false.</returns>
         public static bool GetNextFreeSeat(this Vehicle vehicle, out VehicleSeat seat)
         {
             seat = VehicleSeat.Any;

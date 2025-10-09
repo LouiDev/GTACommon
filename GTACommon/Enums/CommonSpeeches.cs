@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GTACommon.Enums
+﻿namespace GTACommon.Enums
 {
     /// <summary>
     /// A list of commonly used speeches by ambient peds. Not every ped uses every speech though.
