@@ -1,3 +1,6 @@
+## Discontinued!
+This library is discontinued. However, you can still download it as some of my mods still require it.
+
 This is a utility library used for SHVDN nightly to improve quality of life when scripting GTA V script mods.
 
 ## Downloads
